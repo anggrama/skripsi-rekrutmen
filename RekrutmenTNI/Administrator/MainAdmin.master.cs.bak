@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+namespace RekrutmenTNI.Admin
+{
+    public partial class MainAdmin : System.Web.UI.MasterPage
+    {
+        DataAccess.DataAccessMain oDataAccess = new DataAccess.DataAccessMain();
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("LoginAdm.aspx");
+            }
+
+            if (Session["UserRole"].ToString() == "SuperAdmin")
+            {
+                NavbarAdmin.Groups[0].Visible = true;
+                NavbarAdmin.Groups[1].Visible = false;
+                NavbarAdmin.Groups[2].Visible = false;
+            }
+            else if (Session["UserRole"].ToString() == "Admin")
+            {
+                NavbarAdmin.Groups[0].Visible = false;
+                NavbarAdmin.Groups[1].Visible = true;
+                NavbarAdmin.Groups[2].Visible = false;
+            }
+            else if (Session["UserRole"].ToString() == "Lanud")
+            {
+                NavbarAdmin.Groups[0].Visible = false;
+                NavbarAdmin.Groups[1].Visible = false;
+                NavbarAdmin.Groups[2].Visible = true;
+            }
+            else
+            {
+                Response.Redirect("LoginAdm.aspx");
+            }
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadcboTahunPendaftaran();
+                LoadcboGelombang();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+        
+        private void LoadcboTahunPendaftaran()
+        {
+            DataTable dtTahunPendaftaran = new DataTable();
+                try
+                {
+                    dtTahunPendaftaran = oDataAccess.GetDataTableTahunPendaftaran(Session["Pangkat"].ToString());
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+
+            cboTahunPendaftaran.DataSource = dtTahunPendaftaran;
+            cboTahunPendaftaran.TextField = "TahunPendaftaran";
+            cboTahunPendaftaran.ValueField = "TahunPendaftaran";
+            cboTahunPendaftaran.DataBind();
+
+            cboTahunPendaftaran.Value = Session["TahunPendaftaran"].ToString();
+
+            if (dtTahunPendaftaran.Rows.Count == 0)
+            {
+                cboTahunPendaftaran.Value = null;
+            }
+
+        }
+        private void LoadcboGelombang()
+        {
+            DataTable dt = new DataTable();
+                try
+                {
+                    dt = oDataAccess.GetDataTableGelombang(cboTahunPendaftaran.Text, Session["Pangkat"].ToString());
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            cboGelombang.DataSource = dt;
+            cboGelombang.TextField = "GelombangKe";
+            cboGelombang.ValueField = "GelombangID";
+            cboGelombang.DataBind();
+
+            cboGelombang.Value = Session["GelombangID"].ToString();
+
+            if(dt.Rows.Count == 0)
+            {
+                cboGelombang.Value = null;
+                btnLoad.Enabled = false;
+            }
+        }
+
+        protected void btnLoad_Click(object sender, EventArgs e)
+        {
+            Session["TahunPendaftaran"] = cboTahunPendaftaran.Value;
+            Session["GelombangID"] = cboGelombang.Value;
+        }
+
+        protected void cboGelombang_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            LoadcboGelombang();
+        }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnTaruna_Click(object sender, EventArgs e)
+        {
+            Session["Pangkat"] = "Taruna";
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnBintara_Click(object sender, EventArgs e)
+        {
+            Session["Pangkat"] = "Bintara";
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnTamtama_Click(object sender, EventArgs e)
+        {
+            Session["Pangkat"] = "Tamtama";
+            Response.Redirect(Request.RawUrl);
+        }
+    }
+}

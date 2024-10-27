@@ -1,0 +1,656 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MainAdmin.master" AutoEventWireup="true" CodeBehind="DetailAnimo.aspx.cs" Inherits="RekrutmenTNI.Admin.DetailAnimo" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPanel" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentForm" runat="server">
+        <table class="auto-style1">
+        <tr>
+            <td class="auto-style7">No Animo</td>
+            <td class="auto-style8">:</td>
+            <td>
+                <dx:ASPxLabel ID="lblNoAnimo" runat="server" Text="[lblNoAnimo]">
+                </dx:ASPxLabel>
+            </td>
+            <td>
+                <asp:LinkButton ID="hypPeserta" runat="server" OnClick="hypPeserta_Click">Daftarkan</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Email</td>
+            <td class="auto-style8">:</td>
+            <td>
+                <dx:ASPxLabel ID="lblEmail" runat="server">
+                </dx:ASPxLabel>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style7">Wilayah</td>
+            <td class="auto-style8">:</td>
+            <td>
+                <dx:ASPxLabel ID="lblWilayah" runat="server" Text="[lblWilayah]">
+                </dx:ASPxLabel>
+            </td>
+        </tr>
+        </table>
+        
+</dx:PanelContent>
+</PanelCollection>
+    </dx:ASPxRoundPanel>
+    <br />
+    <dx:ASPxRoundPanel ID="pnlDataDiri" runat="server" Width="100%" HeaderText="Data Diri"><PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+    <table class="auto-style1">
+        <tr>
+            <td class="auto-style2">Nama Lengkap*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNama" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Tinggi Badan*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <table class="auto-style1">
+                    <tr>
+                        <td class="auto-style13">
+                            <dx:ASPxSpinEdit ID="spnTinggiBadan" runat="server" MaxLength="3" MaxValue="220" MinValue="160" NumberType="Integer" Width="80px">
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="True" />
+                                </ValidationSettings>
+                            </dx:ASPxSpinEdit>
+                        </td>
+                        <td>cm</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Berat Badan*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <table class="auto-style1">
+                    <tr>
+                        <td class="auto-style14">
+                            <dx:ASPxSpinEdit ID="spnBeratBadan" runat="server" MaxLength="3" MaxValue="150" MinValue="40" NumberType="Integer" Width="80px">
+                                <ValidationSettings>
+                                    <RequiredField IsRequired="True" />
+                                </ValidationSettings>
+                            </dx:ASPxSpinEdit>
+                        </td>
+                        <td>kg</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Jenis Kelamin*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboJenisKelamin" runat="server" ValueType="System.String" Width="150px">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Tempat Lahir*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtTempatLahir" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Tanggal Lahir*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxDateEdit ID="dteTanggalLahir" runat="server" EditFormat="Custom" EditFormatString="dd/MM/yyyy">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxDateEdit>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Agama*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboAgama" runat="server" Width="150px">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Suku*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtSuku" runat="server" Width="150px" MaxLength="20">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Alamat*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxMemo ID="txtAlamat" runat="server" Height="71px" Width="200px">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxMemo>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Kabupaten*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtKabupaten" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">Propinsi*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPropinsi" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">No. Telepon*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNoTelp" runat="server" Width="150px" MaxLength="20">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style2">No. KTP*</td>
+            <td class="auto-style9">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNoKTP" runat="server" Width="150px" MaxLength="20">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+    </table>
+</dx:PanelContent>
+</PanelCollection>
+    </dx:ASPxRoundPanel>
+    <br />
+    <dx:ASPxRoundPanel ID="pnlPendidikan" runat="server" Width="100%" HeaderText="Latar Belakang Pendidikan & Sumber Rekrutmen"><PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+    <table class="auto-style1">
+        <tr>
+            <td colspan="3"><strong>1. SD</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Nama SD</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaSD" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Kota Asal</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtKotaAsalSD" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Propinsi</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPropinsiSD" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Tahun Lulus</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnTahunLulusSD" runat="server" Width="60px" MaxLength="4" NumberType="Integer">
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">NEM SD</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnNemSD" runat="server" Width="60px" Increment="0.1" LargeIncrement="1" MaxValue="10">
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>        
+        <tr>
+            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style10" >&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan = "3"><strong>2. SMP</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Nama SMP</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaSMP" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Kota Asal</td>
+            <td class="auto-style10">:</td>
+            <td><dx:ASPxTextBox ID="txtKotaAsalSMP" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Propinsi</td>
+            <td class="auto-style10">:</td>
+            <td><dx:ASPxTextBox ID="txtPropinsiSMP" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Tahun Lulus</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnTahunLulusSMP" runat="server" Width="60px" MaxLength="4" NumberType="Integer">
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">NEM SMP</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnNemSMP" runat="server" Width="60px" Increment="0.1" LargeIncrement="1" MaxValue="10">
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>        
+        <tr>
+            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style3"><strong>3. SMA</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Pendidikan*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPendidikanSMA" runat="server" ValueType="System.String">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Nama SMA/SMK/MTS*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaSMA" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Jurusan*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtJurusan" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Kota Asal*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtKotaAsalSMA" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Propinsi*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPropinsiSMA" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Tahun Lulus*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnTahunLulusSMA" runat="server" Width="60px" NumberType="Integer">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">NEM SMA*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnNemSMA" runat="server" Width="60px" Increment="0.1" LargeIncrement="1" MaxValue="10">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Nilai UN*</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxSpinEdit ID="spnNilaiUN" runat="server" Width="60px" Increment="0.1" LargeIncrement="1" MaxValue="10">
+                    <ValidationSettings>
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxSpinEdit>
+            </td>
+        </tr>
+    </table>
+        </dx:PanelContent>
+    </PanelCollection>
+    </dx:ASPxRoundPanel>
+    <br />
+    <dx:ASPxRoundPanel ID="pnlDataOrtu" runat="server" Width="100%" HeaderText="Data Orang Tua / Wali"><PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+    <table class="auto-style1">
+        <tr>
+            <td colspan="3"><strong>1. Bapak Kandung</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaBpk" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Pekerjaan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPekerjaanBpk" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Jabatan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtJabatanBpk" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama Kantor</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaKantorBpk" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style11" >&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>2. Ibu Kandung</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaIbu" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Pekerjaan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPekerjaanIbu" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Jabatan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtJabatanIbu" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama Kantor</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaKantorIbu" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style11" >&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>3. Wali</strong></td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaWali" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Pekerjaan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPekerjaanWali" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Jabatan</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtJabatanWali" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style4">Nama Kantor</td>
+            <td class="auto-style11">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNamaKantorWali" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
+            </td>
+        </tr>
+    </table>
+</dx:PanelContent>
+</PanelCollection>
+    </dx:ASPxRoundPanel>
+    <br />
+    <dx:ASPxRoundPanel ID="pnlDataPelengkap" runat="server" Width="100%" HeaderText="Data Pelengkap"><PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+    <table class="auto-style1">
+        <tr>
+            <td colspan="3">Ini adalah pendaftaran masuk
+                <asp:Literal ID="litJenis" runat="server"></asp:Literal>
+                &nbsp;Anda yang keberapa kalinya ??
+                <dx:ASPxComboBox ID="cboPendaftaranKe" runat="server" ValueType="System.String" Width="200px">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Dari mana anda mengetahui adanya pendaftaran online ini<dx:ASPxComboBox ID="cboPendaftaranDari" runat="server" ValueType="System.String" Width="200px">
+            </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">&nbsp;</td>
+            <td class="auto-style10" >&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3">Jika anda pernah berprestasi dalam suatu lomba / kompetisi / olimpiade, isilah data berikut (jika tidak ada prestasi, abaikan saja / isi dengan &quot;Tidak Ada atau tanda &quot;-&quot; )</td>
+        </tr>
+        <tr>
+            <td class="auto-style15"><strong>Prestasi 1</strong></td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Prestasi</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPrestasi1" runat="server" Width="300px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Juara ke-</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi1_Juara" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Tingkatan</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi1_Tingkat" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">&nbsp;</td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15"><strong>Prestasi 2</strong></td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Prestasi</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPrestasi2" runat="server" Width="300px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Juara ke-</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi2_Juara" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Tingkatan</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi2_Tingkat" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">&nbsp;</td>
+            <td class="auto-style10" >&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15"><strong>Prestasi 3</strong></td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Prestasi</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPrestasi3" runat="server" Width="300px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Juara ke-</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi3_Juara" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">Tingkatan</td>
+            <td class="auto-style10">:</td>
+            <td>
+                <dx:ASPxComboBox ID="cboPrestasi3_Tingkat" runat="server" ValueType="System.String">
+                </dx:ASPxComboBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style15">&nbsp;</td>
+            <td class="auto-style10">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3">Apakah anda yakin ingin menyimpan data yang anda isi diatas ??</td>
+        </tr>
+    </table>
+</dx:PanelContent>
+</PanelCollection>
+    </dx:ASPxRoundPanel>
+    <br />
+    <table>
+        <tr>
+            <td>
+                <dx:ASPxButton ID="btnSimpan" runat="server" Text="Ya, Saya Yakin Ingin Menyimpan Data Ini" Width="250px" OnClick="btnSimpan_Click">
+                </dx:ASPxButton>
+            </td>
+            <td>
+                <dx:ASPxButton ID="btnLogOut" runat="server" Text="Tidak, Saya Akan Kembali di Lain Waktu" Width="250px" OnClick="btnLogOut_Click">
+                </dx:ASPxButton>
+            </td>
+        </tr>
+    </table> 
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" runat="server" contentplaceholderid="ContentPlaceHolder2">
+</asp:Content>
+

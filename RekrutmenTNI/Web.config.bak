@@ -1,0 +1,93 @@
+﻿<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+	<configSections>
+		<sectionGroup name="devExpress">
+			<section name="themes" type="DevExpress.Web.ThemesConfigurationSection, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false"/>
+			<section name="compression" type="DevExpress.Web.CompressionConfigurationSection, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false"/>
+			<section name="settings" type="DevExpress.Web.SettingsConfigurationSection, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false"/>
+			<section name="errors" type="DevExpress.Web.ErrorsConfigurationSection, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" requirePermission="false"/>
+		</sectionGroup>
+	</configSections>
+	<!--
+		For a description of web.config changes see http://go.microsoft.com/fwlink/?LinkId=235367.
+
+		The following attributes can be set on the <httpRuntime> tag.
+			<system.Web>
+				<httpRuntime targetFramework="4.8" />
+			</system.Web>
+	-->
+	<system.web>
+		<customErrors mode="Off" defaultRedirect="/Beranda.aspx"/>
+		<httpRuntime enableVersionHeader="false"/>
+		<pages viewStateEncryptionMode="Always" controlRenderingCompatibilityVersion="4.0"/>
+		<compilation debug="true" targetFramework="4.8">
+			<assemblies>
+				<add assembly="DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="DevExpress.RichEdit.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="System.Data.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="DevExpress.Web.ASPxThemes.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"/>
+				<add assembly="DevExpress.Web.ASPxHtmlEditor.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="DevExpress.Web.ASPxSpellChecker.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="DevExpress.Office.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="DevExpress.SpellChecker.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=B88D1754D700E49A"/>
+				<add assembly="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/>
+				<add assembly="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+				<add assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+			</assemblies>
+		</compilation>
+		<httpModules>
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" name="ASPxHttpHandlerModule"/>
+		</httpModules>
+		<httpHandlers>
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DX.ashx" validate="false"/>
+			<add type="DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="ASPxUploadProgressHandlerPage.ashx" validate="false"/>
+		</httpHandlers>
+	</system.web>
+	<system.webServer>
+		<modules>
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" name="ASPxHttpHandlerModule"/>
+		</modules>
+		<validation validateIntegratedModeConfiguration="false"/>
+		<handlers>
+			<add type="DevExpress.Web.ASPxHttpHandlerModule, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="DX.ashx" name="ASPxHttpHandlerModule" preCondition="integratedMode"/>
+			<add type="DevExpress.Web.ASPxUploadProgressHttpHandler, DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" verb="GET,POST" path="ASPxUploadProgressHandlerPage.ashx" name="ASPxUploadProgressHandler" preCondition="integratedMode"/>
+		</handlers>
+		<httpProtocol>
+			<customHeaders>
+				<remove name="X-Powered-By"/>
+				<add name="X-Frame-Options" value="SAMEORIGIN"/>
+			</customHeaders>
+		</httpProtocol>
+	</system.webServer>
+	<devExpress>
+		<themes enableThemesAssembly="true" styleSheetTheme="" theme="" customThemeAssemblies=""/>
+		<compression enableHtmlCompression="false" enableCallbackCompression="true" enableResourceCompression="true" enableResourceMerging="true"/>
+		<settings doctypeMode="Xhtml" rightToLeft="false" embedRequiredClientLibraries="false" ieCompatibilityVersion="edge"/>
+		<errors callbackErrorRedirectUrl=""/>
+	</devExpress>
+	<connectionStrings>
+		<add name="ConnString" connectionString="Server=.\SQL2012;Initial Catalog=DB_90780_rekrutkrut;User Id=sa;Password=123456;" providerName="SQL.Data.SQLClient"/>
+		<!--<add name="ConnString" connectionString="Server=s10.winhost.com;Initial Catalog=DB_90780_rekrutkrut;User Id=DB_90780_rekrutkrut_user;Password=Lantai9;" providerName="SQL.Data.SQLClient" />-->
+	</connectionStrings>
+	<appSettings>
+		<add key="smtp_Server" value="mail.rekrutmentni.net"/>
+		<add key="smtp_Port" value="587"/>
+		<add key="smtp_User" value="adminau"/>
+		<add key="smtp_Email" value="adminau@rekrutmentni.net"/>
+		<add key="smtp_Pass" value="123Sdk!@#"/>
+		<add key="videolink_aau" value="https://www.youtube.com/embed/iHTSEYtOFhw?autoplay=1"/>
+		<add key="videolink_bata" value="https://www.youtube.com/embed/swG56c9XXFI?autoplay=1"/>
+	</appSettings>
+</configuration>

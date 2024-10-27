@@ -1,0 +1,60 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MainAdmin.master" AutoEventWireup="true" CodeBehind="PandaDetail.aspx.cs" Inherits="RekrutmenTNI.Admin.PandaDetail" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHiddenField" tagprefix="dx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="contentHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="contentForm" runat="server">
+    <table>
+        <tr>
+            <td colspan="3">
+                <dx:ASPxLabel ID="lblTitle" runat="server" Text="[lblTitle]"></dx:ASPxLabel>
+            </td>
+        </tr>
+        <tr>
+            <td>Kode Panda</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPandaID" runat="server" Width="170px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Nama Panda</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtPandaName" runat="server" Width="170px">
+                </dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Pangkat</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxCheckBoxList ID="chklstPangkat" runat="server" Width="168px">
+                </dx:ASPxCheckBoxList>
+            </td>
+        </tr>
+        <tr>
+            <td>Aktifkan</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxCheckBox ID="chkIsActive" runat="server" CheckState="Checked" Text=" ">
+                </dx:ASPxCheckBox>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="3">
+                <dx:ASPxButton ID="btnSave" runat="server" Text="Simpan" OnClick="btnSave_Click"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnCancel" runat="server" Text="Batal" OnClick="btnCancel_Click"></dx:ASPxButton>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

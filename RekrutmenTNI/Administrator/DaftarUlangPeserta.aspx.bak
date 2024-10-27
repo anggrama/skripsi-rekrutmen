@@ -1,0 +1,27 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MainAdmin.master" AutoEventWireup="true" CodeBehind="DaftarUlangPeserta.aspx.cs" Inherits="RekrutmenTNI.Admin.DaftarAnimo" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentForm" runat="server">
+    <h3>Daftar Animo</h3>
+    <dx:ASPxGridView ID="gvAnimo" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <dx:GridViewDataTextColumn Caption="Nomor Animo" Name="clmNoAnimo" VisibleIndex="0" FieldName="NoAnimo">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Nama Lengkap" Name="clmNama" VisibleIndex="1" FieldName="Nama">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Aksi" Name="clmAksi" VisibleIndex="2">
+                <DataItemTemplate>
+                    <dx:ASPxHyperLink ID="hypDetail" runat="server" NavigateUrl='<%#Eval("NoAnimo","~/Admin/DetailAnimo.aspx?id={0}") %>' Text="Lihat Detail" />
+                </DataItemTemplate>
+            </dx:GridViewDataTextColumn>
+        </Columns>
+        <SettingsPager Visible="False">
+        </SettingsPager>
+        <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+</dx:ASPxGridView>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

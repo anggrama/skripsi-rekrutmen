@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_90780_rekrutkrut_real" Class="dbLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sql2012;Initial Catalog=DB_90780_rekrutkrut_real;Integrated Security=True" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="DB_90780_rekrutkrut_realConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.usp_M_Info_Save" Method="usp_M_Info_Save">
+    <Parameter Name="Pangkat" Parameter="pangkat" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Pengumuman" Parameter="pengumuman" Type="System.String" DbType="Text" />
+    <Parameter Name="Persyaratan" Parameter="persyaratan" Type="System.String" DbType="Text" />
+    <Parameter Name="Lokasi" Parameter="lokasi" Type="System.String" DbType="Text" />
+    <Parameter Name="Jadwal" Parameter="jadwal" Type="System.String" DbType="Text" />
+    <Parameter Name="MateriSeleksi" Parameter="materiSeleksi" Type="System.String" DbType="Text" />
+    <Parameter Name="TampilkanDaftar" Parameter="tampilkanDaftar" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Auto" Parameter="auto" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TahunPendaftaran" Parameter="tahunPendaftaran" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="GelombangID" Parameter="gelombangID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_UpdatePanduan" Method="usp_M_Info_UpdatePanduan">
+    <Parameter Name="Pangkat" Parameter="pangkat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Panduan" Parameter="panduan" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Pendaftar_INSERT" Method="usp_M_Pendaftar_INSERT">
+    <Parameter Name="NoAnimo" Parameter="noAnimo" Type="System.String" DbType="VarChar(20)" Direction="InOut" />
+    <Parameter Name="Gelombang" Parameter="gelombang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TahunPendaftaran" Parameter="tahunPendaftaran" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Nama" Parameter="nama" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pendidikan" Parameter="pendidikan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NamaSMA" Parameter="namaSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KotaAsalSMA" Parameter="kotaAsalSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PropinsiSMA" Parameter="propinsiSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TahunLulusSMA" Parameter="tahunLulusSMA" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="TanggalLahir" Parameter="tanggalLahir" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TempatLahir" Parameter="tempatLahir" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NoKTP" Parameter="noKTP" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Wilayah" Parameter="wilayah" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Pangkat" Parameter="pangkat" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="JenisKelamin" Parameter="jenisKelamin" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Pendaftar_AddPeserta" Method="usp_M_Pendaftar_AddPeserta">
+    <Parameter Name="NoAnimo" Parameter="noAnimo" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_Pesan_Delete" Method="usp_M_Info_Pesan_Delete">
+    <Parameter Name="InfoId" Parameter="infoId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ToPanda" Parameter="toPanda" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_Pesan_UpdateRead" Method="usp_M_Info_Pesan_UpdateRead">
+    <Parameter Name="InfoId" Parameter="infoId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="ToPanda" Parameter="toPanda" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_Pesan_Insert" Method="usp_M_Info_Pesan_Insert">
+    <Parameter Name="InfoId" Parameter="infoId" Type="System.Guid" DbType="UniqueIdentifier" Direction="InOut" />
+    <Parameter Name="Judul" Parameter="judul" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Isi" Parameter="isi" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_Pesan_Panda_Insert" Method="usp_M_Info_Pesan_Panda_Insert">
+    <Parameter Name="InfoId" Parameter="infoId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="FromPanda" Parameter="fromPanda" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ToPanda" Parameter="toPanda" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_Pendaftar_Profile_Insert" Method="usp_Pendaftar_Profile_Insert">
+    <Parameter Name="UserEmail" Parameter="userEmail" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Pass" Parameter="pass" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Nama" Parameter="nama" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TinggiBadan" Parameter="tinggiBadan" Type="System.Double" DbType="Float" />
+    <Parameter Name="BeratBadan" Parameter="beratBadan" Type="System.Double" DbType="Float" />
+    <Parameter Name="JenisKelamin" Parameter="jenisKelamin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TempatLahir" Parameter="tempatLahir" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TanggalLahir" Parameter="tanggalLahir" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Agama" Parameter="agama" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Suku" Parameter="suku" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Alamat" Parameter="alamat" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Kabupaten" Parameter="kabupaten" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Propinsi" Parameter="propinsi" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Telp" Parameter="telp" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NoKTP" Parameter="noKTP" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="StatusSD" Parameter="statusSD" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NamaSD" Parameter="namaSD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KotaAsalSD" Parameter="kotaAsalSD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PropinsiSD" Parameter="propinsiSD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TahunLulusSD" Parameter="tahunLulusSD" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="NEMSD" Parameter="nEMSD" Type="System.Double" DbType="Float" />
+    <Parameter Name="StatusSMP" Parameter="statusSMP" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NamaSMP" Parameter="namaSMP" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KotaAsalSMP" Parameter="kotaAsalSMP" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PropinsiSMP" Parameter="propinsiSMP" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TahunLulusSMP" Parameter="tahunLulusSMP" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="NEMSMP" Parameter="nEMSMP" Type="System.Double" DbType="Float" />
+    <Parameter Name="StatusSMA" Parameter="statusSMA" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="NamaSMA" Parameter="namaSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KotaAsalSMA" Parameter="kotaAsalSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PropinsiSMA" Parameter="propinsiSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TahunLulusSMA" Parameter="tahunLulusSMA" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="NEMSMA" Parameter="nEMSMA" Type="System.Double" DbType="Float" />
+    <Parameter Name="NilaiUN" Parameter="nilaiUN" Type="System.Double" DbType="Float" />
+    <Parameter Name="Pendidikan" Parameter="pendidikan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Jurusan" Parameter="jurusan" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaBpk" Parameter="namaBpk" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AlamatBpk" Parameter="alamatBpk" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PekerjaanBpk" Parameter="pekerjaanBpk" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="JabatanBpk" Parameter="jabatanBpk" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaKantorBpk" Parameter="namaKantorBpk" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaIbu" Parameter="namaIbu" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AlamatIbu" Parameter="alamatIbu" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PekerjaanIbu" Parameter="pekerjaanIbu" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="JabatanIbu" Parameter="jabatanIbu" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaKantorIbu" Parameter="namaKantorIbu" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaWali" Parameter="namaWali" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AlamatWali" Parameter="alamatWali" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PekerjaanWali" Parameter="pekerjaanWali" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="JabatanWali" Parameter="jabatanWali" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NamaKantorWali" Parameter="namaKantorWali" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PendaftaranKe" Parameter="pendaftaranKe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PendaftaranDari" Parameter="pendaftaranDari" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Prestasi1" Parameter="prestasi1" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="JuaraKe1" Parameter="juaraKe1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tingkatan1" Parameter="tingkatan1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Prestasi2" Parameter="prestasi2" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="JuaraKe2" Parameter="juaraKe2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tingkatan2" Parameter="tingkatan2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Prestasi3" Parameter="prestasi3" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="JuaraKe3" Parameter="juaraKe3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tingkatan3" Parameter="tingkatan3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Panda_Save" Method="usp_M_Panda_Save">
+    <Parameter Name="WilayahId" Parameter="wilayahId" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="WilayahName" Parameter="wilayahName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="isTaruna" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="isBintara" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="isTamtama" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsLakiTaruna" Parameter="isLakiTaruna" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsPerempuanTaruna" Parameter="isPerempuanTaruna" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsLakiBintara" Parameter="isLakiBintara" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsPerempuanBintara" Parameter="isPerempuanBintara" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsLakiTamtama" Parameter="isLakiTamtama" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IsPerempuanTamtama" Parameter="isPerempuanTamtama" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Kotama" Parameter="kotama" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Pendaftar_AddPesertaRev" Method="usp_M_Pendaftar_AddPesertaRev">
+    <Parameter Name="NoAnimo" Parameter="noAnimo" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="ModifiedBy" Parameter="modifiedBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Users_Save" Method="usp_M_Users_Save">
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UserRole" Parameter="userRole" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="PandaId" Parameter="pandaId" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Gelombang_Save" Method="usp_M_Gelombang_Save">
+    <Parameter Name="GelombangID" Parameter="gelombangID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GelombangKe" Parameter="gelombangKe" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TahunPendaftaran" Parameter="tahunPendaftaran" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="RangeFrom" Parameter="rangeFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="RangeTo" Parameter="rangeTo" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="BornFrom" Parameter="bornFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="BornTo" Parameter="bornTo" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Pangkat" Parameter="pangkat" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="IsActive" Parameter="isActive" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Info_Pesan_File_Insert" Method="usp_M_Info_Pesan_File_Insert">
+    <Parameter Name="InfoId" Parameter="infoId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="CaptionName" Parameter="captionName" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Filepath" Parameter="filepath" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Setting_Save" Method="usp_M_Setting_Save">
+    <Parameter Name="Laki" Parameter="laki" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Perempuan" Parameter="perempuan" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_M_Pendaftar_INSERTRev" Method="usp_M_Pendaftar_INSERTRev">
+    <Parameter Name="NoAnimo" Parameter="noAnimo" Type="System.String" DbType="VarChar(30)" Direction="InOut" />
+    <Parameter Name="Gelombang" Parameter="gelombang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TahunPendaftaran" Parameter="tahunPendaftaran" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Nama" Parameter="nama" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pendidikan" Parameter="pendidikan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NamaSMA" Parameter="namaSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KotaAsalSMA" Parameter="kotaAsalSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PropinsiSMA" Parameter="propinsiSMA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TahunLulusSMA" Parameter="tahunLulusSMA" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="TanggalLahir" Parameter="tanggalLahir" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TempatLahir" Parameter="tempatLahir" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NoKTP" Parameter="noKTP" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Wilayah" Parameter="wilayah" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Pangkat" Parameter="pangkat" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="JenisKelamin" Parameter="jenisKelamin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Alamat" Parameter="alamat" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Kabupaten" Parameter="kabupaten" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Propinsi" Parameter="propinsi" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Telp" Parameter="telp" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Agama" Parameter="agama" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Suku" Parameter="suku" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TinggiBadan" Parameter="tinggiBadan" Type="System.Double" DbType="Float" />
+    <Parameter Name="BeratBadan" Parameter="beratBadan" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_Insert_Nilai" Method="usp_Insert_Nilai">
+    <Parameter Name="NoPeserta" Parameter="noPeserta" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="HasilAngka" Parameter="hasilAngka" Type="System.Double" DbType="Float" />
+    <Parameter Name="HasilHuruf" Parameter="hasilHuruf" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="HasilLulus" Parameter="hasilLulus" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Keterangan" Parameter="keterangan" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="TipeNilai" Parameter="tipeNilai" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_Insert_NilaiByPesertaPusat" Method="usp_Insert_NilaiByPesertaPusat">
+    <Parameter Name="NoPesertaPusat" Parameter="noPesertaPusat" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="HasilAngka" Parameter="hasilAngka" Type="System.Double" DbType="Float" />
+    <Parameter Name="HasilHuruf" Parameter="hasilHuruf" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="HasilLulus" Parameter="hasilLulus" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Keterangan" Parameter="keterangan" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="TipeNilai" Parameter="tipeNilai" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

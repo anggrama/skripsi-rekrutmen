@@ -1,0 +1,404 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainDefault.master.cs" Inherits="RekrutmenTNI.MainDefault" %>
+
+<%@ Register Assembly="DevExpress.Web.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Rekrutmen TNI AU</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Website rekrutmen TNI Angkatan Udara" />
+    <meta name="keywords" content="Rekrutmen TNI AU" />
+    <meta name="author" content="sdk Indonesia" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/camera.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/custom-own.css" type="text/css" media="screen" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/superfish.js"></script>
+
+    <script type="text/javascript" src="js/jquery.ui.totop.js"></script>
+
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.caroufredsel.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
+    <script type="text/javascript" src="js/toastr.min.js"></script>
+    <script>
+        function showToast(message, messageType) {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "500",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr[messageType](message);
+        }
+    </script>
+</head>
+<body class="main">
+
+    <form id="form1" runat="server">
+        <div id="main">
+            <div id="inner">
+                <div class="top1 clearfix">
+                    <header>
+                        <div class="logo_wrapper">
+                            <a href="http://au.rekrutmentni.net" class="logo">
+                                <img src="images/logo-tni-au-swa-bhuana-paksa-web.png" alt="" /></a>
+                        </div>
+                    </header>
+                    <div style="padding-top: 27px">
+                        <div class="top2 clearfix">
+                            <asp:ContentPlaceHolder ID="head" runat="server">
+                            </asp:ContentPlaceHolder>
+                            <div class="social_wrapper" id="loginForm" runat="server">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <dx:ASPxTextBox ID="txtEmail" runat="server" Width="100px" NullText="Email" AutoCompleteType="Disabled">
+                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="valLogin">
+                                                    <RegularExpression ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                                                    <RequiredField IsRequired="True" />
+                                                </ValidationSettings>
+                                            </dx:ASPxTextBox>
+                                        </td>
+                                        <td>
+                                            <dx:ASPxTextBox ID="txtPassword" runat="server" Width="100px" Password="True" NullText="Password" AutoCompleteType="Disabled">
+                                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="valLogin">
+                                                    <RequiredField IsRequired="True" />
+                                                </ValidationSettings>
+                                            </dx:ASPxTextBox>
+                                        </td>
+                                        <td style="width: 51px">
+                                            <dx:ASPxButton ID="btnLogin" runat="server" Text="Login" ValidationGroup="valLogin" OnClick="btnLogin_Click" CssClass="btn btn-small btn-primary"></dx:ASPxButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <dx:ASPxHyperLink ID="hypLupaPassword" runat="server" Text="Lupa Password">
+                                                <ClientSideEvents Click="function(s, e) {
+popForget.Show();	
+}" />
+                                            </dx:ASPxHyperLink>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+
+                                <dx:ASPxLabel ID="lblSalah" runat="server" Text="Maaf Email/Password yang anda masukkan salah." ForeColor="Red" Visible="False"></dx:ASPxLabel>
+
+                            </div>
+                            <div class="social_wrapper" id="logoutForm" runat="server">
+                                <dx:ASPxButton ID="btnLogout" runat="server" Text="Logout" CssClass="btn btn-small btn-danger" OnClick="btnLogout_Click"></dx:ASPxButton>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="top3 clearfix">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span3">
+                                <div class="menu_wrapper">
+                                    <div class="navbar navbar_">
+                                        <div class="navbar-inner navbar-inner_">
+                                            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </a>
+                                            <div class="nav-collapse nav-collapse_ collapse" id="navGuest" runat="server">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li><a href="Default.aspx?isStart=1">
+                                                        <div class="txt1">Beranda</div>
+                                                        <div class="txt2">
+                                                            Selamat Datang Calon
+                                                            <asp:Literal ID="litPangkat" runat="server"></asp:Literal>
+                                                        </div>
+                                                    </a></li>
+                                                    <li><a href="pengumuman.aspx">
+                                                        <div class="txt1">Pengumuman</div>
+                                                        <div class="txt2">Informasi Pendaftaran</div>
+                                                    </a></li>
+                                                    <li><a href="syarat.aspx">
+                                                        <div class="txt1">Syarat</div>
+                                                        <div class="txt2">Syarat &amp; Ketentuan</div>
+                                                    </a></li>
+                                                    <li><a href="jadwal.aspx">
+                                                        <div class="txt1">Lokasi</div>
+                                                        <div class="txt2">Jadwal &amp; Lokasi Pendaftaran</div>
+                                                    </a></li>
+                                                    <li><a href="materi.aspx">
+                                                        <div class="txt1">Materi</div>
+                                                        <div class="txt2">Materi Seleksi</div>
+                                                    </a></li>
+                                                    <li><a href="daftar.aspx">
+                                                        <div class="txt1">Daftar</div>
+                                                        <div class="txt2">Panduan Pendaftaran</div>
+                                                    </a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="nav-collapse nav-collapse_ collapse" id="navUser" runat="server">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li><a href="dashboard.aspx">
+                                                        <div class="txt1">Pendaftaran</div>
+                                                        <div class="txt2">Selamat Datang</div>
+                                                    </a></li>
+                                                    <li><a href="dataprofil.aspx">
+                                                        <div class="txt1">Profil</div>
+                                                        <div class="txt2">Profil Pendaftar</div>
+                                                    </a></li>
+                                                    <li><a href="informasi.aspx">
+                                                        <div class="txt1">Informasi</div>
+                                                        <div class="txt2">Informasi Kelulusan</div>
+                                                    </a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="nav-collapse nav-collapse_ collapse" id="navDefault" runat="server">
+                                                <ul class="nav sf-menu clearfix">
+                                                    <li><a href="Default.aspx?isStart=1">
+                                                        <div class="txt1">Beranda</div>
+                                                        <div class="txt2"></div>
+                                                    </a></li>
+                                                    <li><a href="beranda.aspx?p=taruna">
+                                                        <div class="txt1">Taruna AAU</div>
+                                                        <div class="txt2">Taruna & Taruni</div>
+                                                    </a></li>
+                                                    <li><a href="beranda.aspx?p=bintara">
+                                                        <div class="txt1">Bintara</div>
+                                                        <div class="txt2">Pria & Wanita</div>
+                                                    </a></li>
+                                                    <li><a href="beranda.aspx?p=tamtama">
+                                                        <div class="txt1">Tamtama</div>
+                                                        <div class="txt2"></div>
+                                                    </a></li>
+                                                    <li><a href="#">
+                                                        <div class="txt1">Pengaduan</div>
+                                                        <div class="txt2">021-8709390 / 085280000200</div>
+                                                    </a></li>
+                                                    <li class="sub-menu sub-menu-1"><a href="#">
+                                                        <div class="txt1">Video</div>
+                                                        <div class="txt2">AAU & Bintara Tamtama TNI AU</div>
+                                                        <em></em></a>
+                                                        <ul>
+                                                            <li><a href="Video.aspx?type=aau">Taruna AAU</a></li>
+                                                            <li><a href="Video.aspx?type=bata">Bintara Tamtama TNI AU</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <!-- content place holder -->
+                                <asp:ContentPlaceHolder ID="contentMain" runat="server">
+                                </asp:ContentPlaceHolder>
+
+                            </div>
+                </div>
+            </div>
+            </div>
+
+                <!-- ini bagian gambar bawah 
+            <div id="slider3_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div id="slider3">
+                                <a class="prev3" href="#"></a>
+                                <a class="next3" href="#"></a>
+                                <div class="carousel-box row">
+                                    <div class="inner span12">
+                                        <div class="carousel main">
+                                            <ul>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner01.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    real stories
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner02.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    military exercises
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner03.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    our mission
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner04.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    history of academy
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner05.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    football team
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb-carousel banner1">
+                                                        <div class="thumbnail clearfix">
+                                                            <a href="#">
+                                                                <figure>
+                                                                    <img src="images/banner06.jpg" alt="" />
+                                                                </figure>
+                                                                <div class="caption">
+                                                                    our principles
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             akhir gambar bawah -->
+
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="footer_inner clearfix">
+                                <div class="copyright"><a href="http://www.sdkindonesia.co.id">sdk Indonesia</a>  © 2015. All rights reserved.</div>
+                                <div class="menu_bot2 clearfix">
+                                    <ul id="menu_bot2" class="clearfix">
+                                        <!-- <li><% if (Session["-- page pangkat --"] != null) { Session["-- page pangkat --"].ToString(); }; %></li>
+                                            <li><a href="Beranda.aspx">Pilih Pendaftaran</a></li>
+                                            <li><a href="default.aspx">Beranda</a></li>
+                                            <li><a href="#">terms of use</a></li>	                              
+	                                        <li><a href="#">mail us</a></li>	    -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+
+        <dx:ASPxPopupControl ID="popForget" ClientInstanceName="popForget" runat="server" Modal="True" PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" HeaderText="Lupa Password">
+
+            <ClientSideEvents Shown="function(s, e) {
+	lblError.SetText('');
+	txtForgetEmail.SetText('');
+}" />
+
+            <ContentCollection>
+                <dx:PopupControlContentControl runat="server">
+                    <div class="row">
+                        <div class="span3">
+                            <dx:ASPxCallbackPanel ID="callMail" runat="server" ClientInstanceName="callMail" OnCallback="callMail_Callback">
+                                <ClientSideEvents EndCallback="function(s, e) {
+
+                    lblError.SetText(s.cp_error);
+}" />
+                                <PanelCollection>
+                                    <dx:PanelContent runat="server">
+                                        <label>Masukkan Email Anda : </label>
+                                        &nbsp;<dx:ASPxTextBox ID="txtForgetEmail" runat="server" Width="100%" ClientInstanceName="txtForgetEmail">
+                                            <ValidationSettings ErrorTextPosition="Bottom" ValidationGroup="forgetPass">
+                                                <RegularExpression ErrorText="bukan format email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                                                <RequiredField ErrorText="Isi email anda" IsRequired="True" />
+                                            </ValidationSettings>
+                                        </dx:ASPxTextBox>
+
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                            </dx:ASPxCallbackPanel>
+                            <dx:ASPxLabel ID="lblError" runat="server" ClientInstanceName="lblError" ForeColor="red"></dx:ASPxLabel>
+                            <div class="pull-right">
+                                <dx:ASPxButton ID="btnSend" runat="server" Text="Kirim" CssClass="btn btn-primary btn-small" AutoPostBack="false" ValidationGroup="forgetPass">
+                                    <ClientSideEvents Click="function(s, e) {
+//if (ASPxClientEdit.AreEditorsValid())
+if (ASPxClientEdit.ValidateGroup(&quot;forgetPass&quot;)) 
+	callMail.PerformCallback();
+}" />
+                                </dx:ASPxButton>
+                            </div>
+                        </div>
+                    </div>
+                </dx:PopupControlContentControl>
+            </ContentCollection>
+
+        </dx:ASPxPopupControl>
+    </form>
+</body>
+</html>

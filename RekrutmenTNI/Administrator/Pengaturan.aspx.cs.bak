@@ -1,0 +1,160 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+namespace RekrutmenTNI.Admin
+{
+    public partial class Pengaturan : System.Web.UI.Page
+    {
+        DataAccess.DataAccessPengaturan oDataAccess = new DataAccess.DataAccessPengaturan();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["UserRole"].ToString() != "SuperAdmin" && Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("MainAdm.aspx");
+                return;
+            }
+
+            if(IsPostBack == false)
+            { 
+                LoadcboTahunPendaftaran();
+                //LoadcboGelombang();
+                LoadPengaturan();
+            }
+        }
+
+        private void LoadPengaturan()
+        {
+            DataTable dtHtml;
+            DataTable dtInfoLulus;
+            
+            try
+            {
+                dtHtml = oDataAccess.GetDataTableHtml(Session["Pangkat"].ToString());
+                dtInfoLulus = oDataAccess.GetDataTableInfoLulus(Session["Pangkat"].ToString());
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
+
+            htmlPengumuman.Html = dtHtml.Rows[0]["Pengumuman"].ToString();
+            htmlPersyaratan.Html = dtHtml.Rows[0]["Persyaratan"].ToString();
+            htmlLokasi.Html = dtHtml.Rows[0]["Lokasi"].ToString();
+            htmlJadwal.Html = dtHtml.Rows[0]["Jadwal"].ToString();
+            htmlMateri.Html = dtHtml.Rows[0]["MateriSeleksi"].ToString();
+
+            chkTampilkanDaftar.Checked = Convert.ToBoolean(dtInfoLulus.Rows[0]["TampilkanDaftar"]);
+            chkGelombangAkhir.Checked = Convert.ToBoolean(dtInfoLulus.Rows[0]["Auto"]);
+            cboTahunPendaftaran.Value = dtInfoLulus.Rows[0]["TahunPendaftaran"].ToString();
+            cboGelombang.Value = dtInfoLulus.Rows[0]["GelombangID"].ToString();
+        }
+
+        protected void cboGelombangId_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            LoadcboGelombang(e.Parameter);
+        }
+        private void LoadcboTahunPendaftaran()
+        {
+            DataTable dtTahunPendaftaran = new DataTable();
+            try
+            {
+                dtTahunPendaftaran = oDataAccess.GetDataTableTahunPendaftaran(Session["Pangkat"].ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+            cboTahunPendaftaran.DataSource = dtTahunPendaftaran;
+            cboTahunPendaftaran.TextField = "TahunPendaftaran";
+            cboTahunPendaftaran.ValueField = "TahunPendaftaran";
+            cboTahunPendaftaran.DataBind();
+
+            if (dtTahunPendaftaran.Rows.Count == 0)
+            {
+                cboTahunPendaftaran.Value = null;
+            }
+
+        }
+
+        private void LoadcboGelombang(string tahunPendaftaran)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = oDataAccess.GetDataTableGelombang(tahunPendaftaran, Session["Pangkat"].ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            cboGelombang.DataSource = dt;
+            cboGelombang.TextField = "GelombangKe";
+            cboGelombang.ValueField = "GelombangID";
+            cboGelombang.DataBind();
+
+            if (dt.Rows.Count == 0)
+            {
+                cboGelombang.Value = null;
+            }
+        }
+
+        private void InsertStruct(DataStruct.DataStructPengaturan args)
+        {
+            args.Pangkat = Session["Pangkat"].ToString();
+            args.Pengumuman = htmlPengumuman.Html;
+            args.Persyaratan = htmlPersyaratan.Html;
+            args.Lokasi = htmlLokasi.Html;
+            args.Jadwal = htmlJadwal.Html;
+            args.MateriSeleksi = htmlMateri.Html;
+            args.TampilkanDaftar = chkTampilkanDaftar.Checked;
+            args.Auto = chkGelombangAkhir.Checked;
+            args.TahunPendaftaran = cboTahunPendaftaran.Value.ToString();
+            args.GelombangID = Convert.ToInt32(cboGelombang.Value);
+        }
+
+        protected void btnSimpan_Click(object sender, EventArgs e)
+        {
+            DataStruct.DataStructPengaturan args = new DataStruct.DataStructPengaturan();
+
+            try
+            {
+                InsertStruct(args);
+                oDataAccess.Save(args);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            DataStruct.DataStructPengaturan args = new DataStruct.DataStructPengaturan();
+            
+            try
+            {
+                string filename = uploadPanduan.FileName;
+                string ext = System.IO.Path.GetExtension(filename);
+                string savelocation = Server.MapPath("Upload/Panduan/Panduan." + ext);
+                args.Panduan = filename;
+                args.Pangkat = Session["Pangkat"].ToString();
+                oDataAccess.UpdatePanduan(args);
+                uploadPanduan.SaveAs(savelocation);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+    }
+}

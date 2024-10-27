@@ -1,0 +1,61 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/MainDefault.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="RekrutmenTNI.Default" %>
+
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxImageSlider" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 80%;
+        }
+        .auto-style2 {
+            width: 185px;
+        }
+        .auto-style3 {
+            width: 662px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentMain" runat="server">
+    <div align="center" >
+    
+        <table class="auto-style1">
+            <tr>
+                <td>
+                    <asp:LinkButton ID="hypTaruna" runat="server" OnClick="hypTaruna_Click">Taruna AAU</asp:LinkButton>
+                </td>
+                <td rowspan="4" class="auto-style3">
+                    <dx:ASPxImageSlider ID="imgSlider" runat="server" BinaryImageCacheFolder="~\Thumb\">
+                        <SettingsNavigationBar Mode="Dots" />
+                        <SettingsSlideShow AutoPlay="True" />
+                    </dx:ASPxImageSlider>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:LinkButton ID="hypBintara" runat="server" OnClick="hypBintara_Click">Bintara AU</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:LinkButton ID="hypTamtama" runat="server" OnClick="hypTamtama_Click">Tamtama AU</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="SELAMA PROSES PENERIMAAN 
+BERLANGSUNG CALON TIDAK 
+DIPUNGUT BIAYA APAPUN....!!!!!
+JIKA ADA YG MENGATAS NAMA KAN PANITIA UNTUK MEMBAYAR SEJUMLAH UANG UNTUK DITRANSFER ITU SUDAH PASTI PENIPUAN...!!!!! SEGERA LAPORKAN KE PANITIA TERDEKAT..
+">
+                    </dx:ASPxLabel>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+</asp:Content>
+
+   
+

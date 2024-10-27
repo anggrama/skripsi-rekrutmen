@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DataAccess;
+using System.Data;
+using DevExpress.Web.ASPxUploadControl;
+using System.IO;
+
+namespace RekrutmenTNI.Admin
+{
+    public partial class Nilai : System.Web.UI.Page
+    {
+        DataAccessNilai oDataAccess = new DataAccessNilai();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void popUpPeserta_WindowCallback(object source, DevExpress.Web.ASPxPopupControl.PopupWindowCallbackArgs e)
+        {
+            bindGrid();
+        }
+
+        private void bindGrid()
+        {
+            try
+            {
+                DataTable dtData = oDataAccess.getDataTable_PesertaLulus("", 0, "");
+                gvPeserta.DataSource = dtData;
+                gvPeserta.DataBind();
+            }
+            catch (Exception ex)
+            {
+                JsClass.MessageBox(ex.Message);
+            }
+        }
+
+        #region "-- upload events --"
+        protected void upload_Adm1_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+            string filename = String.Format("Adm1_{0:yyMMddhhmmss}.xls", DateTime.Today);
+            string path = SavePostedFile(e.UploadedFile, filename);
+
+            //DataTable dtData = oDataAccess.GetDataTableOledb(path, "SELECT * FROM [$Sheet1]");
+        }
+
+        protected void upload_Kes1_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Jasmani_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Litpers_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Pom_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Psikologi_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Adm2_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Kes2_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Kes3_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        protected void upload_Akademis_FileUploadComplete(object sender, DevExpress.Web.ASPxUploadControl.FileUploadCompleteEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        string SavePostedFile(UploadedFile uploadedFile,string savedFilename)
+        {
+            if (!uploadedFile.IsValid)
+                return string.Empty;
+
+            string fileName = Path.Combine(MapPath("~/Admin/Upload/Nilai/"), savedFilename);
+            uploadedFile.SaveAs(fileName);
+
+            return fileName;
+            
+        }
+
+
+    }
+}

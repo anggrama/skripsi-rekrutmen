@@ -1,0 +1,38 @@
+﻿/* css table 3 columns */ 
+table.filltable table{
+}
+    table.filltable td{
+        padding : 4px 4px 4px;
+        font-size:12px;
+	    /*line-height:16px;*/
+        text-align:left;
+        vertical-align:middle;
+    margin-left: 40px;
+}
+
+     table.filltable tr{
+         height:25px;
+         
+     }
+
+    table.filltable tbody td:nth-child(1) {width:150px;}
+    table.filltable tbody td:nth-child(2) {width:20px; text-align:center}
+	table.filltable tbody td:nth-child(3) {width:auto;}
+
+
+
+/*  */
+.fillpadding
+{
+    padding: 0 0 0 40px;
+}
+
+.hr-line {
+	height:1px;
+	display:block;
+    width:90%;
+	line-height:0;
+	font-size:0;
+	background:#edecea;
+	background:#c3c3c3;
+}

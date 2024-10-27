@@ -1,0 +1,70 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MainAdmin.master" AutoEventWireup="true" CodeBehind="GelombangDetail.aspx.cs" Inherits="RekrutmenTNI.Admin.GelombangDetail" %>
+
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="contentForm" runat="server">
+    </dx:ASPxHyperLink>
+        <h3>
+        <dx:ASPxLabel ID="lblTitle" runat="server" Text="[lblTitle]" style="font-weight: 700"></dx:ASPxLabel>
+    </h3>
+    <table>
+        <tr>
+            <td>Nomor Gelombang</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtNoGelombang" runat="server" Width="170px"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Tahun Pendaftaran</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxTextBox ID="txtTahunPendaftaran" runat="server" Width="170px"></dx:ASPxTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>Periode</strong></td>
+        </tr>
+        <tr>
+            <td>Dari Tanggal</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxDateEdit ID="dtDari" runat="server"></dx:ASPxDateEdit>
+            </td>
+        </tr>
+        <tr>
+            <td>Sampai Tanggal</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxDateEdit ID="dtSampai" runat="server"></dx:ASPxDateEdit>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+        <tr>
+            <td>Is Active</td>
+            <td>:</td>
+            <td>
+                <dx:ASPxCheckBox ID="chkIsActive" runat="server" Checked="True" CheckState="Checked" Text=" "></dx:ASPxCheckBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <dx:ASPxButton ID="btnSave" runat="server" Text="Simpan" OnClick="btnSave_Click" style="margin-bottom: 0px"></dx:ASPxButton>
+            </td>
+            <td>
+                <dx:ASPxButton ID="btnBatal" runat="server" Text="Batal" OnClick="btnBatal_Click"></dx:ASPxButton>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

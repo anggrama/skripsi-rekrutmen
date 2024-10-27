@@ -1,0 +1,48 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginAdm.aspx.cs" Inherits="RekrutmenTNI.Admin.LoginAdm" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+        <table>
+            <tr>
+                <td>
+                    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Username"></dx:ASPxLabel>
+                </td>
+                <td>
+                    <dx:ASPxTextBox ID="txtUsername" runat="server" Width="170px"></dx:ASPxTextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Password"></dx:ASPxLabel>
+                </td>
+                <td>
+                    <dx:ASPxTextBox ID="txtPassword" runat="server" Width="170px" Password="True"></dx:ASPxTextBox>
+                </td>
+            </tr>
+            <tr>
+                <td colspan = "2">
+                <dx:ASPxLabel ID="lblSalah" runat="server" Text="Maaf Email/Password yang anda masukkan salah." ForeColor="Red" Visible="False"></dx:ASPxLabel>
+                </td>
+            </tr>
+                <tr>
+                    <td colspan = "2">
+                        <dx:ASPxButton ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"></dx:ASPxButton>
+                    </td>
+                </tr>
+            </tr>
+        </table>
+
+    </div>
+    </form>
+</body>
+</html>

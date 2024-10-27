@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MainDefault.Master" AutoEventWireup="true" CodeBehind="MainAdmin.master.cs" Inherits="RekrutmenTNI.Admin.MainAdmin" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="contentHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+           
+<asp:Content ID="Content2" ContentPlaceHolderID="contentMain" runat="server">
+    <table>
+        <tr>
+            <td>
+                <asp:LinkButton ID="btnTaruna" runat="server" OnClick="btnTaruna_Click">Taruna</asp:LinkButton>
+            </td>
+            <td>
+                <asp:LinkButton ID="btnBintara" runat="server" OnClick="btnBintara_Click">Bintara</asp:LinkButton>
+            </td>
+            <td>
+                <asp:LinkButton ID="btnTamtama" runat="server" OnClick="btnTamtama_Click">Tamtama</asp:LinkButton>
+            </td>
+            <td>
+                <asp:LinkButton ID="btnLogOut" runat="server" OnClick="btnLogOut_Click">Logout</asp:LinkButton>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td rowspan="2">
+                <dx:ASPxNavBar ID="NavbarAdmin" runat="server">
+                    <Groups>
+                        <dx:NavBarGroup Name="grpSuperAdmin" Text="Super Administrator">
+                            <Items>
+                                <dx:NavBarItem NavigateUrl="~/Admin/MainAdm.aspx" Text="Statistik Wilayah">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DaftarUlangPeserta.aspx" Text="Daftar Ulang Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DataAnimo.aspx" Text="Laporan Data Animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DataPeserta.aspx" Text="Laporan Data Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/RekapData.aspx?id=animo" Text="Rekapitulasi Data Animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/RekapData.aspx?id=peserta" Text="Rekapitulasi Data Peserta">
+                                </dx:NavBarItem>
+
+                                <dx:NavBarItem Text="Panggilan Seleksi Pusat" NavigateUrl="~/Admin/SeleksiDaerah.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Text="Hasil Seleksi Pusat" NavigateUrl="~/Admin/SeleksiPusat.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Text="Panduan Pengoprasian">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="grpUsers" NavigateUrl="~/Admin/Users.aspx" Text="Master Users">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/Gelombang.aspx" Text="Master Gelombang">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="clmPanda" NavigateUrl="~/Admin/Panda.aspx" Text="Master Panda">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="grpPengaturan" NavigateUrl="~/Admin/Pengaturan.aspx" Text="Pengaturan Info">
+                                </dx:NavBarItem>
+                            </Items>
+                        </dx:NavBarGroup>
+                        <dx:NavBarGroup Name="grpAdmin" Text="Administrator">
+                            <Items>
+                                <dx:NavBarItem Name="clmStats" NavigateUrl="~/Admin/MainAdm.aspx" Text="Statistik Wilayah">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DaftarUlangPeserta.aspx" Text="Daftar Ulang Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DataAnimo.aspx" Text="Laporan Data Animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/DataPeserta.aspx" Text="Laporan Data Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/RekapData.aspx?id=animo" Text="Rekapitulasi Data Animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/RekapData.aspx?id=peserta" Text="Rekapitulasi Data Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Text="Panggilan Seleksi Pusat" NavigateUrl="~/Admin/SeleksiDaerah">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Text="Hasil Seleksi Pusat" NavigateUrl="~/Admin/SeleksiPusat.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Text="Panduan Pengoprasian">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem NavigateUrl="~/Admin/Gelombang.aspx" Text="Master Gelombang">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="clmPanda" NavigateUrl="~/Admin/Panda.aspx" Text="Master Panda">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="grpPengaturan" NavigateUrl="~/Admin/Pengaturan.aspx" Text="Pengaturan Info">
+                                </dx:NavBarItem>
+                            </Items>
+                        </dx:NavBarGroup>
+                        <dx:NavBarGroup Name="grpLanud" Text="Lanud">
+                            <Items>
+                                <dx:NavBarItem Name="itemStats" NavigateUrl="~/Admin/MainAdm.aspx" Text="Statistik Wilayah">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemDaftarPeserta" NavigateUrl="~/Admin/DaftarUlangPeserta.aspx" Text="Daftar Ulang Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemDataAnimo" NavigateUrl="~/Admin/DataAnimo.aspx" Text="Laporan Data Animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemDataPeserta" NavigateUrl="~/Admin/DataPeserta.aspx" Text="Laporan Data Peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemRekapDataAnimo" Text="Rekapitulasi Data Animo" NavigateUrl="~/Admin/RekapData.aspx?id=animo">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemRekapDataPeserta" Text="Rekapitulasi Data Peserta" NavigateUrl="~/Admin/RekapData.aspx?id=peserta">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemNilaiSeleksiDaerah" Text="Input Nilai Seleksi Daerah" NavigateUrl="~/Admin/Nilai.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemSeleksiPusat" Text="Panggilan Seleksi Pusat" NavigateUrl="~/Admin/SeleksiDaerah.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemHasilSeleksiPusat" Text="Hasil Seleksi Pusat" NavigateUrl="~/Admin/SeleksiPusat.aspx">
+                                </dx:NavBarItem>
+                                <dx:NavBarItem Name="itemPanduanPengoprasian" Text="Panduan Pengoprasian">
+                                </dx:NavBarItem>
+                            </Items>
+                        </dx:NavBarGroup>
+                    </Groups>
+                </dx:ASPxNavBar>
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    <table style="margin-right: 0px">
+                        <tr>
+                            <td>
+                                <dx:ASPxLabel ID="lblTahunPendaftaran" runat="server" Text="Tahun Pendaftaran :"></dx:ASPxLabel>
+                                <dx:ASPxComboBox ID="cboTahunPendaftaran" runat="server" ClientInstanceName="cboTahunPendaftaran">
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) {
+	cboGelombang.PerformCallback(cboTahunPendaftaran.GetValue().toString());
+}" />
+                                </dx:ASPxComboBox>
+                            </td>
+                            <td>
+                                <dx:ASPxLabel ID="lblGelombang" runat="server" Text="Gelombang :"></dx:ASPxLabel>
+                                <dx:ASPxComboBox ID="cboGelombang" runat="server" OnCallback="cboGelombang_Callback" ClientInstanceName="cboGelombang">
+                                </dx:ASPxComboBox>
+                            </td>
+                            <td>
+                                <dx:ASPxButton ID="btnLoad" runat="server" Text="Load" ClientInstanceName="btnLoad" OnClick="btnLoad_Click">
+                                </dx:ASPxButton>
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+            </td>
+        </tr>
+        
+                
+        <tr>
+            <td>        
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="contentForm" runat="server"></asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+</asp:Content>

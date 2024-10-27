@@ -1,0 +1,34 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MainAdmin.master" AutoEventWireup="true" CodeBehind="DataAnimo.aspx.cs" Inherits="RekrutmenTNI.Admin.DataAnimo" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentForm" runat="server">
+    <h3>Daftar Animo</h3>
+        <dx:ASPxGridView ID="gvAnimo" runat="server" AutoGenerateColumns="False" ClientInstanceName="gvAnimo" >
+        <Columns>
+            <dx:GridViewDataTextColumn Caption="No Animo" Name="clmNoAnimo" VisibleIndex="0" FieldName="NoAnimo">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Nama Lengkap" Name="clmNamaLengkap" VisibleIndex="1" FieldName="Nama">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Tinggi Badan" Name="clmTinggiBadan" VisibleIndex="2" FieldName="TinggiBadan">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Berat Badan" Name="clmBeratBadan" VisibleIndex="3" FieldName="BeratBadan">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Tahun Lulus" Name="clmTahunLulus" VisibleIndex="4" FieldName="TahunLulus">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn Caption="Rataan Nilai UAN" Name="clmNilai" VisibleIndex="5" FieldName="NilaiRata">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataHyperLinkColumn Caption="Aksi" FieldName="NoAnimo" Name="clmAksi" VisibleIndex="6">
+                <PropertiesHyperLinkEdit NavigateUrlFormatString="~/Admin/DetailAnimo.aspx?id={0}" Text="Lihat Detail">
+                </PropertiesHyperLinkEdit>
+            </dx:GridViewDataHyperLinkColumn>
+        </Columns>
+        <SettingsPager Visible="False">
+        </SettingsPager>
+        <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+    </dx:ASPxGridView>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

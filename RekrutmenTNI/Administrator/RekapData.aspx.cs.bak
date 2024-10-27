@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+namespace RekrutmenTNI.Admin
+{
+    public partial class RekapDataAnimo : System.Web.UI.Page
+    {
+        DataAccess.DataAccessRekapData oDataAccess = new DataAccess.DataAccessRekapData();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            radioList.SelectedIndex = 0;
+            if (Request.QueryString["id"].ToString() == null)
+            {
+                Response.Redirect("RekapData.aspx?id=animo");
+            }
+
+            if(IsPostBack == false)
+            { 
+            LoadgvAnimo(radioList.Value.ToString());
+            }
+            gvAnimo.Columns[0].Caption = radioList.SelectedItem.Text;
+        }
+
+        private void LoadgvAnimo(string Parameter)
+        {
+            DataTable dt = new DataTable();
+            string pangkat, pandaId, param;
+            param = Request.QueryString["id"].ToString();
+            pangkat = Session["Pangkat"].ToString();
+            pandaId = Session["PandaId"].ToString();
+            if (param == "animo")
+            {
+                param = "IS";
+            }
+            else if (param == "peserta")
+            {
+                param = "IS NOT";
+            }
+            else
+            {
+                Response.Redirect("RekapData.aspx?id=animo");
+                return;
+            }
+
+            if(Session["UserRole"].ToString() == "SuperAdmin" || Session["UserRole"].ToString() == "Admin")
+            {
+                try
+                {
+                    if(Parameter == "Pendidikan" || Parameter == "Agama")
+                    {
+
+                    }
+                    else
+                    {
+                        dt = oDataAccess.GetDataTableRekapData(Session["GelombangID"].ToString(), pangkat, Parameter, param);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (Parameter == "Pendidikan" || Parameter == "Agama")
+                    {
+
+                    }
+                    else
+                    {
+                        dt = oDataAccess.GetDataTableRekapData(Session["GelombangID"].ToString(), pangkat, Parameter, pandaId, param);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                    throw;
+                }
+            }
+
+            dt.Columns[0].ColumnName = "Parameter";
+
+            gvAnimo.DataSource = dt;
+            gvAnimo.DataBind();
+        }
+
+        protected void radioList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void callbackgv_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+        {
+            LoadgvAnimo(e.Parameter.ToString());
+            gvAnimo.Columns[0].Caption = radioList.Items.FindByValue(e.Parameter).Text;
+        }
+    }
+}

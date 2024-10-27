@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+namespace RekrutmenTNI.Admin
+{
+    public partial class MainAdm : System.Web.UI.Page
+    {
+        string pangkat;
+        DataAccess.DataAccessMainAdm oDataAccess = new DataAccess.DataAccessMainAdm();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Loadgv();
+            TotalNasional();
+        }
+        private void Loadgv()
+        {
+            string pandaId;
+            pandaId = Session["PandaId"].ToString();
+            pangkat = Session["Pangkat"].ToString();
+            DataTable dt = new DataTable();
+            int jmlAnimo = 0, jmlPeserta = 0, LulusDaerah = 0, LulusPusat = 0;
+
+            if (Session["UserRole"].ToString() == "Admin" || Session["UserRole"].ToString() == "SuperAdmin")
+            {
+                pandaId = "%";
+                try
+                {
+                    dt = oDataAccess.GetDataTableLanud(pandaId, pangkat, Session["GelombangID"].ToString());
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else
+            {
+                try
+                {
+                    dt = oDataAccess.GetDataTableLanud(pandaId, pangkat, Session["GelombangID"].ToString());
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            gvStats.DataSource = dt;
+            gvStats.DataBind();
+
+            for (int i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                jmlAnimo = jmlAnimo + (int)dt.Rows[i]["JumlahAnimo"];
+                jmlPeserta = jmlPeserta + (int)dt.Rows[i]["JumlahPeserta"];
+                LulusDaerah = LulusDaerah + (int)dt.Rows[i]["LulusDaerah"];
+                LulusPusat = LulusPusat + (int)dt.Rows[i]["LulusPusat"];
+            }
+
+            lblTotAnimo.Text = jmlAnimo.ToString();
+            lblTotPeserta.Text = jmlPeserta.ToString();
+            lblTotLulusDaerah.Text = LulusDaerah.ToString();
+            lblTotLulusPeserta.Text = LulusPusat.ToString();
+
+        }
+        private void TotalNasional()
+        {
+            DataTable dtTotNasAnimo = new DataTable(), 
+                dtTotNasPeserta = new DataTable(), 
+                dtTotLulusDaerah = new DataTable(), 
+                dtTotLulusPeserta = new DataTable();
+            try
+            {
+                dtTotNasAnimo = oDataAccess.GetDataTableTotNasAnimo(pangkat, Session["GelombangID"].ToString());
+                dtTotNasPeserta = oDataAccess.GetDataTableTotNasPeserta(pangkat, Session["GelombangID"].ToString());
+                dtTotLulusDaerah = oDataAccess.GetDataTableTotLulusDaerah(pangkat, Session["GelombangID"].ToString());
+                dtTotLulusPeserta = oDataAccess.GetDataTableTotLulusPeserta(pangkat, Session["GelombangID"].ToString());
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            lblTotNasAnimo.Text = dtTotNasAnimo.Rows[0]["TotNasAnimo"].ToString();
+            lblTotNasPeserta.Text = dtTotNasPeserta.Rows[0]["TotNasPeserta"].ToString();
+            lblTotNasLulusDaerah.Text = dtTotLulusDaerah.Rows[0]["LulusDaerah"].ToString();
+            lblTotNasLulusPeserta.Text = dtTotLulusPeserta.Rows[0]["LulusPusat"].ToString();
+        }
+       
+        protected void gvStats_CustomCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomCallbackEventArgs e)
+        {
+            Loadgv();
+        }
+    }
+}
