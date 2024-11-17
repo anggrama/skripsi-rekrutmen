@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RekrutmenTNI.Administrator {
-    
-    
-    public partial class ucFilter {
-        
+namespace RekrutmenTNI.Administrator
+{
+
+
+    public partial class ucFilter
+    {
+
         /// <summary>
         /// filterPanel control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl filterPanel;
-        
+
         /// <summary>
         /// litFilter control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litFilter;
-        
+
         /// <summary>
         /// callFilter control.
         /// </summary>
@@ -38,16 +40,16 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxCallbackPanel callFilter;
-        
+
         /// <summary>
-        /// radPangkat control.
+        /// drpPangkat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRadioButtonList radPangkat;
-        
+        protected global::DevExpress.Web.ASPxComboBox drpPangkat;
+
         /// <summary>
         /// cboTahun control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cboTahun;
-        
+
         /// <summary>
         /// cboGelombang control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxComboBox cboGelombang;
-        
+
         /// <summary>
         /// btnLoad control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btnLoad;
-        
+
         /// <summary>
         /// hfFilter control.
         /// </summary>

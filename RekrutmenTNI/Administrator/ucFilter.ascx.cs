@@ -98,7 +98,7 @@ namespace RekrutmenTNI.Administrator
                 LoadGelombang();
             }
 
-            radPangkat.Value = Session[cSession.sFilter_Pangkat];
+            drpPangkat.Value = Session[cSession.sFilter_Pangkat];
             cboTahun.Value = Session[cSession.sFilter_Tahun];
             cboGelombang.Value = null;
             if (cboGelombang.Items.Count != 0)
@@ -118,7 +118,7 @@ namespace RekrutmenTNI.Administrator
                 if (Session[cSession.sFilter_Pangkat] == null)
                     Session[cSession.sFilter_Pangkat] = "Bintara";
                 else
-                    radPangkat.Value = Session[cSession.sFilter_Pangkat];
+                    drpPangkat.Value = Session[cSession.sFilter_Pangkat];
 
                 LoadTahunPendaftaran();
                 LoadGelombang();

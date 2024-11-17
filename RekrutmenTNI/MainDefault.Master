@@ -134,7 +134,7 @@ popForget.Show();
                                                     <li><a href="Default.aspx?isStart=1">
                                                         <div class="txt1">Beranda</div>
                                                         <div class="txt2">
-                                                            Selamat Datang Calon
+                                                            Calon
                                                             <asp:Literal ID="litPangkat" runat="server"></asp:Literal>
                                                         </div>
                                                     </a></li>
@@ -186,25 +186,34 @@ popForget.Show();
                                                         <div class="txt1">TARUNA TNI</div>
                                                         <div class="txt2">Taruna & Taruni</div>
                                                     </a></li>
-                                                    <li><a href="beranda.aspx?p=bintara">
+                                                    <li><a href="beranda.aspx?p=papk">
                                                         <div class="txt1">PA PK TNI</div>
                                                         <div class="txt2">Pria & Wanita</div>
                                                     </a></li>
-                                                    <li><a href="beranda.aspx?p=tamtama">
+                                                    <li><a href="beranda.aspx?p=psdp">
                                                         <div class="txt1">PA PSDP PNB</div>
                                                         <div class="txt2">PRIA</div>
                                                     </a></li>
-                                                    <li><a href="#">
+                                                    <li  class="sub-menu sub-menu-1">
+                                                        <a href="beranda.aspx?p=bintara">
                                                         <div class="txt1">BINTARA</div>
-                                                        <div class="txt2">PRIA/WANITA AD/AL/AU</div>
-                                                    </a></li>
-                                                    <li class="sub-menu sub-menu-1"><a href="#">
+                                                        <div class="txt2">Pria & Wanita AD/AL/AU</div>
+                                                         <em></em></a>
+                                                         <ul>
+                                                             <li><a href="beranda.aspx?p=bintaraad">Bintara TNI AD</a></li>
+                                                             <li><a href="beranda.aspx?p=bintaraal">Bintara TNI AL</a></li>
+                                                             <li><a href="beranda.aspx?p=bintaraau">Bintara TNI AU</a></li>
+                                                         </ul>
+                                                        </li>
+                                                    <li class="sub-menu sub-menu-1">
+                                                        <a href="beranda.aspx?p=tamtama">
                                                         <div class="txt1">TAMTAMA</div>
-                                                        <div class="txt2">AD/AL/AU</div>
+                                                        <div class="txt2">PRIA AD/AL/AU</div>
                                                         <em></em></a>
                                                         <ul>
-                                                            <li><a href="Video.aspx?type=aau">Taruna AAU</a></li>
-                                                            <li><a href="Video.aspx?type=bata">Bintara Tamtama TNI AU</a></li>
+                                                            <li><a href="beranda.aspx?p=tamtamaad">Tamtama TNI AD</a></li>
+                                                            <li><a href="beranda.aspx?p=tamtamaal">Tamtama TNI AL</a></li>
+                                                            <li><a href="beranda.aspx?p=tamtamaau">Tamtama TNI AU</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>

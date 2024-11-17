@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RekrutmenTNI.Administrator {
-    
-    
-    public partial class ucFilterPangkat {
-        
+namespace RekrutmenTNI.Administrator
+{
+
+
+    public partial class ucFilterPangkat
+    {
+
         /// <summary>
         /// filterPanel control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl filterPanel;
-        
+
         /// <summary>
         /// litFilter control.
         /// </summary>
@@ -29,16 +31,16 @@ namespace RekrutmenTNI.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litFilter;
-        
+
         /// <summary>
-        /// radPangkat control.
+        /// drpPangkat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRadioButtonList radPangkat;
-        
+        protected global::DevExpress.Web.ASPxComboBox drpPangkat;
+
         /// <summary>
         /// hfFilter control.
         /// </summary>

@@ -19,7 +19,7 @@ namespace RekrutmenTNI
                 try
                 {
                     string pangkat = Convert.ToString(Session[cSession.sPangkat]);
-                    if (pangkat.ToLower() != "taruna" && pangkat.ToLower() != "bintara" && pangkat.ToLower() != "tamtama")
+                    if (pangkat.ToLower() != "taruna/taruni tni" && pangkat.ToLower() != "pa pk tni" && pangkat.ToLower() != "pa psdp pnb tni" && pangkat.ToLower() != "bintara tni ad" && pangkat.ToLower() != "bintara tni al" && pangkat.ToLower() != "bintara tni au" && pangkat.ToLower() != "tamtama tni ad" && pangkat.ToLower() != "tamtama tni al" && pangkat.ToLower() != "tamtama tni au")
                     {
                         Response.Redirect("Beranda.aspx");
                         return;

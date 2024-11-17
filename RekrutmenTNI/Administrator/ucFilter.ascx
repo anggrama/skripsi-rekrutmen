@@ -10,7 +10,8 @@
                 <PanelCollection>
                     <dx:PanelContent runat="server">
                         <div class="row">
-                            <div class="span4" style="text-align: center; vertical-align: central">
+                          <%--  <div class="span4" style="text-align: center; vertical-align: central">
+                               
                                 <dx:ASPxRadioButtonList ID="radPangkat" ClientInstanceName="radPangkat" runat="server" ValueType="System.String" RepeatDirection="Horizontal" Border-BorderStyle="None">
                                     <ClientSideEvents SelectedIndexChanged="function(s, e) {
 	callFilter.PerformCallback('pangkat;' + radPangkat.GetValue().toString());
@@ -23,6 +24,28 @@
 
                                     <Border BorderStyle="None"></Border>
                                 </dx:ASPxRadioButtonList>
+
+
+                            </div>--%>
+                                                        <div class="span2" style="vertical-align: central">
+                                <label>Pangkat:</label>
+                                <dx:ASPxComboBox ID="drpPangkat" runat="server" ClientInstanceName="radPangkat" Width="200px" Theme="BlackGlass" DropDownStyle="DropDown">
+
+                                    <ClientSideEvents SelectedIndexChanged="function(s, e) {
+	callFilter.PerformCallback('pangkat;' + radPangkat.GetValue().toString());
+}" />
+                                                                        <Items>
+                                                                            <dx:ListEditItem Text="taruna/taruni tni" Value="taruna/taruni tni" />
+                                                                            <dx:ListEditItem Text="pa pk tni" Value="pa pk tni" />
+                                                                            <dx:ListEditItem Text="pa psdp pnb tni" Value="pa psdp pnb tni" />
+                                                                            <dx:ListEditItem Text="bintara tni ad" Value="bintara tni ad" />
+                                                                            <dx:ListEditItem Text="bintara tni al" Value="intara tni al" />
+                                                                            <dx:ListEditItem Text="bintara tni au" Value="bintara tni au" />
+                                                                            <dx:ListEditItem Text="tamtama tni ad" Value="tamtama tni ad" />
+                                                                             <dx:ListEditItem Text="tamtama tni al" Value="tamtama tni al" />
+                                                                             <dx:ListEditItem Text="tamtama tni au" Value="tamtama tni au" />
+</Items>
+                                </dx:ASPxComboBox>
                             </div>
                             <div class="span1" style="vertical-align: central">
                                 <label>Tahun:</label>
@@ -31,12 +54,14 @@
                                     <ClientSideEvents SelectedIndexChanged="function(s, e) {
 	callFilter.PerformCallback('tahun;' + cboTahun.GetValue().toString());
 }" />
+                                    
 
                                 </dx:ASPxComboBox>
                             </div>
                             <div class="span1"  style="vertical-align: central">
                                 <label>Gelombang:</label>
                                 <dx:ASPxComboBox ID="cboGelombang" runat="server" ClientInstanceName="cboGelombang" Width="90px" Theme="BlackGlass" DropDownStyle="DropDown">
+                                  
                                 </dx:ASPxComboBox>
                             </div>
                             <div class="span1"  style="vertical-align: central">
