@@ -111,7 +111,7 @@ namespace DataAccess
 
             try
             {
-                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'JK' AND Is{0} = 1", pangkat));
+                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'JK' AND pangkat like %{0}%", pangkat));
             }
             catch (Exception ex)
             {
