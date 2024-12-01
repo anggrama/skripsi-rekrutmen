@@ -36,14 +36,17 @@
 }" />
                                                                         <Items>
                                                                             <dx:ListEditItem Text="taruna/taruni tni" Value="taruna/taruni tni" />
-                                                                            <dx:ListEditItem Text="pa pk tni" Value="pa pk tni" />
-                                                                            <dx:ListEditItem Text="pa psdp pnb tni" Value="pa psdp pnb tni" />
+                                                                            <dx:ListEditItem Text="pa pk tni umum" Value="pa pk tni umum" />
+                                                                             <dx:ListEditItem Text="pa pk tni susgakes" Value="pa pk tni susgakes" />
+                                                                            <dx:ListEditItem Text="pa psdp pnb" Value="pa psdp pnb" />
+                                                                               <dx:ListEditItem Text="pa psdp tani" Value="pa psdp tani" />
                                                                             <dx:ListEditItem Text="bintara tni ad" Value="bintara tni ad" />
                                                                             <dx:ListEditItem Text="bintara tni al" Value="intara tni al" />
                                                                             <dx:ListEditItem Text="bintara tni au" Value="bintara tni au" />
                                                                             <dx:ListEditItem Text="tamtama tni ad" Value="tamtama tni ad" />
                                                                              <dx:ListEditItem Text="tamtama tni al" Value="tamtama tni al" />
                                                                              <dx:ListEditItem Text="tamtama tni au" Value="tamtama tni au" />
+
 </Items>
                                 </dx:ASPxComboBox>
                             </div>

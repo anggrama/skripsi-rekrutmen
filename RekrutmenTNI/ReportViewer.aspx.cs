@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DevExpress.XtraReports.Security;
 using DevExpress.XtraReports.UI;
 
 namespace RekrutmenTNI
@@ -13,6 +14,8 @@ namespace RekrutmenTNI
         reportAdapter oReport;
         protected void Page_Init(object sender, EventArgs e)
         {
+            ScriptPermissionManager.GlobalInstance = new ScriptPermissionManager(ExecutionMode.Unrestricted);
+
             string path = Server.MapPath(".");
             oReport = new reportAdapter(path);
             string id;

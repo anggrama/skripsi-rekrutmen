@@ -72,7 +72,7 @@ namespace DataAccess
 
             try
             {
-                string query = string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'Pendidikan' AND Is{0} = 1", pangkat);
+                string query = string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'Pendidikan' AND (pangkat like '%{0}%' OR pangkat = 'all')", pangkat);
                 dt = GetDataTable(query);
             }
             catch (Exception ex)
@@ -89,13 +89,8 @@ namespace DataAccess
 
             try
             {
-                string whereJK;
-                if (jenisKelamin == "1")
-                    whereJK = string.Format("IsLaki{0}=1", pangkat);
-                else
-                    whereJK = string.Format("IsPerempuan{0}=1",pangkat);
-
-                dt = GetDataTable(string.Format("SELECT WilayahId,WilayahName FROM M_Panda WHERE Is{0}=1 and " + whereJK, pangkat));
+                string sql = string.Format("SELECT WilayahId,WilayahName FROM M_Panda WHERE (pangkat_JK like '%{0}-{1}%' OR pangkat_JK = 'all')", pangkat, jenisKelamin);
+                dt = GetDataTable(sql);
             }
             catch (Exception ex)
             {
@@ -111,7 +106,8 @@ namespace DataAccess
 
             try
             {
-                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'JK' AND pangkat like %{0}%", pangkat));
+                string sql = string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType = 'JK' AND (pangkat like '%{0}%' OR pangkat = 'all')", pangkat);
+                dt = GetDataTable(sql);
             }
             catch (Exception ex)
             {

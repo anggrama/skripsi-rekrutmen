@@ -20,16 +20,25 @@ namespace RekrutmenTNI
                 Session[cSession.sPangkat] = "taruna/taruni tni";
             }
 
-            if (pangkat.ToLower() == "papk")
+            if (pangkat.ToLower() == "papkumum")
             {
-                Session[cSession.sPangkat] = "pa pk tni";
+                Session[cSession.sPangkat] = "pa pk tni umum";
             }
 
-            if (pangkat.ToLower() == "psdp")
+            if (pangkat.ToLower() == "papksusgakes")
             {
-                Session[cSession.sPangkat] = "pa psdp pnb tni";
+                Session[cSession.sPangkat] = "pa pk tni susgakes";
             }
 
+            if (pangkat.ToLower() == "psdppnb")
+            {
+                Session[cSession.sPangkat] = "pa psdp pnb";
+            }
+
+            if (pangkat.ToLower() == "psdptani")
+            {
+                Session[cSession.sPangkat] = "pa psdp susga pertanian";
+            }
 
             if (pangkat.ToLower() == "bintaraad")
             {

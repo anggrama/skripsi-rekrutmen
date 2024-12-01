@@ -186,14 +186,29 @@ popForget.Show();
                                                         <div class="txt1">TARUNA TNI</div>
                                                         <div class="txt2">Taruna & Taruni</div>
                                                     </a></li>
-                                                    <li><a href="beranda.aspx?p=papk">
+                                                      
+                                                    <li  class="sub-menu sub-menu-1">
+                                                        <a href="#">
                                                         <div class="txt1">PA PK TNI</div>
-                                                        <div class="txt2">Pria & Wanita</div>
-                                                    </a></li>
-                                                    <li><a href="beranda.aspx?p=psdp">
-                                                        <div class="txt1">PA PSDP PNB</div>
-                                                        <div class="txt2">PRIA</div>
-                                                    </a></li>
+                                                        <div class="txt2">Pria & Wanita AD/AL/AU</div>
+                                                         <em></em></a>
+                                                         <ul>
+                                                             <li><a href="beranda.aspx?p=papkumum">PA PK TNI UMUM</a></li>
+                                                             <li><a href="beranda.aspx?p=papksusgakes">PA PK TNI SUSGAKES</a></li>
+                                                         </ul>
+                                                     </li>
+
+                                                    <li  class="sub-menu sub-menu-1">
+                                                    <a href="#">
+                                                    <div class="txt1">PA PSDP TNI</div>
+                                                    <div class="txt2">Pria & Wanita AD/AL/AU</div>
+                                                     <em></em></a>
+                                                     <ul>
+                                                         <li><a href="beranda.aspx?p=psdppnb">PA PSDP PNB</a></li>
+                                                         <li><a href="beranda.aspx?p=psdptani">PA PSDP TANI</a></li>
+                                                     </ul>
+                                                 </li>
+
                                                     <li  class="sub-menu sub-menu-1">
                                                         <a href="beranda.aspx?p=bintara">
                                                         <div class="txt1">BINTARA</div>
@@ -204,7 +219,9 @@ popForget.Show();
                                                              <li><a href="beranda.aspx?p=bintaraal">Bintara TNI AL</a></li>
                                                              <li><a href="beranda.aspx?p=bintaraau">Bintara TNI AU</a></li>
                                                          </ul>
-                                                        </li>
+                                                     </li>
+
+
                                                     <li class="sub-menu sub-menu-1">
                                                         <a href="beranda.aspx?p=tamtama">
                                                         <div class="txt1">TAMTAMA</div>

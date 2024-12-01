@@ -16,7 +16,7 @@ namespace DataAccess
 
             try
             {
-                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType ='{0}' AND Is{1}=1 ORDER BY ParameterID",parameterType, pangkat));
+                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType ='{0}'AND (pangkat like '%{0}%' OR pangkat = 'all') ORDER BY ParameterID", parameterType, pangkat));
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace DataAccess
 
             try
             {
-                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType ='{0}' AND Is{1}=1 AND ParameterID={2} ORDER BY ParameterID", parameterType, pangkat, ParameterID));
+                dt = GetDataTable(string.Format("SELECT ParameterID,ParameterName FROM M_Parameter WHERE ParameterType ='{0}' AND AND (pangkat like '%{0}%' OR pangkat = 'all') AND ParameterID={2} ORDER BY ParameterID", parameterType, pangkat, ParameterID));
             }
             catch (Exception ex)
             {
